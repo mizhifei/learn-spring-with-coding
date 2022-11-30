@@ -31,20 +31,14 @@ public class ManualDataSourceApplication implements CommandLineRunner {
     }
 
     private void showData() {
-        log.info("Start showing data--------------------------------------------------------------");
         jdbcTemplate.queryForList("select * from t_user;")
                 .forEach(row -> log.info(row.toString()));
-        log.info("End showing data++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     }
 
     private void showConnection() throws SQLException {
-        log.info("--------------------------------------------------------------");
         log.info(dataSource.toString());
-        log.info("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         Connection connection = dataSource.getConnection();
-        log.info("--------------------------------------------------------------");
         log.info(connection.toString());
-        log.info("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         connection.close();
     }
 }

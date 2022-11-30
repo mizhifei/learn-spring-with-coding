@@ -27,13 +27,9 @@ public class HelloDataSourceApplication implements CommandLineRunner {
     }
 
     private void showConnection() throws SQLException {
-		log.info("--------------------------------------------------------------");
         log.info(dataSource.toString());
-		log.info("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 		Connection connection = dataSource.getConnection();
-        log.info("--------------------------------------------------------------");
 		log.info(connection.toString());
-        log.info("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 		connection.close();
 	}
 }
